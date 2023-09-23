@@ -1,0 +1,26 @@
+---
+import type { CollectionEntry } from "astro:content";
+import BaseHead from "../components/BaseHead.astro";
+import Header from "../components/Header.astro";
+type Props = CollectionEntry<"blog">["data"];
+const { title, description, pubDate } = Astro.props;
+---
+
+<html>
+  <head>
+    <BaseHead title={title} description={description} />
+  </head>
+  <Header />
+  <main>
+    <h1>{title}</h1>
+    {
+      pubDate ? (
+        <>
+          <p style="text-align: center;">{pubDate?.toLocaleDateString()}</p>
+          <hr />
+        </>
+      ) : null
+    }
+    <slot />
+  </main>
+</html>

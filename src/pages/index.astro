@@ -1,25 +1,26 @@
 ---
+import BaseHead from "../components/BaseHead.astro";
+import Header from "../components/Header.astro";
 import { getCollection } from "astro:content";
 const allPosts = await getCollection('blog');
 ---
 
 <html lang="en">
 	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Home</title>
-		<style is:global>
-			pre {
-				padding: 1.5rem;
-			}
-			code {
-				padding: 8px;
+		<BaseHead title="Home" description="Homepage"/>
+		<style>
+			@media (max-width: 540px) {
+				li {
+					max-width: 40ch;
+					white-space: nowrap;
+					overflow: hidden;
+					text-overflow: ellipsis;
+				}
 			}
 		</style>
 	</head>
 	<body>
+		<Header />
 		<main>
 			<h1>Posts</h1>
 			{

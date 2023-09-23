@@ -39,7 +39,7 @@ Now the actual question to ask in this situation is, "Is the algorithm giving yo
 I want to be your savior with this superb writeup.
 Isn't it true that we all consume a lot of content on social media? But question yourself: is that what you need? Your answer is NO, for sure.
 
-# Algorithm_1: Assumption_1
+# Assumption_1
 Assume you have a life goal to win something, and to fill that goal, you will watch a number of things and grasp them where ever possible by thinking that they will be useful in the future. Maybe even I will do the same.
 
 For a while to be stress-free.….

@@ -5,9 +5,9 @@ interface Props {
   image?: string;
 }
 
-const canonicalURL = new URL(Astro.url.pathname, Astro.site);
+// const canonicalURL = new URL(Astro.url.pathname, Astro.site);
 
-const { title, description, image = "/blog-placeholder-1.jpg"} = Astro.props;
+const { title, description, image = "/blog-placeholder-1.jpg" } = Astro.props;
 ---
 
 <meta charset="utf-8" />
@@ -15,9 +15,78 @@ const { title, description, image = "/blog-placeholder-1.jpg"} = Astro.props;
 <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 <meta name="generator" content={Astro.generator} />
 
-<link rel="canonical" href={canonicalURL} />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link
+  href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400&display=swap"
+  rel="stylesheet"
+/>
+<!-- <link rel="canonical" href={canonicalURL} /> -->
 
 <title>{title}</title>
 <meta name="title" content={title} />
 <meta name="description" content={description} />
 
+<style is:global>
+  *,
+  *:before,
+  *:after {
+    box-sizing: border-box;
+    -webkit-font-smoothing: antialiased;
+  }
+  body {
+    /* font-family: "Inter", sans-serif; */
+    font-family:
+      -apple-system,
+      BlinkMacSystemFont,
+      avenir next,
+      avenir,
+      segoe ui,
+      helvetica neue,
+      helvetica,
+      Cantarell,
+      Ubuntu,
+      roboto,
+      noto,
+      arial,
+      sans-serif;
+    line-height: 1.6;
+  }
+  pre {
+    padding: 1em;
+    border-radius: 5px;
+  }
+  code {
+    padding: 1em;
+  }
+  main {
+    margin: auto;
+    width: 720px;
+    max-width: calc(100% - 2em);
+  }
+  img {
+    width: 100%;
+    border-radius: 5px;
+  }
+  .sr-only {
+    border: 0;
+    padding: 0;
+    margin: 0;
+    position: absolute !important;
+    height: 1px;
+    width: 1px;
+    overflow: hidden;
+    /* IE6, IE7 - a 0 height clip, off to the bottom right of the visible 1px box */
+    clip: rect(1px 1px 1px 1px);
+    /* maybe deprecated but we need to support legacy browsers */
+    clip: rect(1px, 1px, 1px, 1px);
+    /* modern browsers, clip-path works inwards from each corner */
+    clip-path: inset(50%);
+    /* added line to stop words getting smushed together (as they go onto seperate lines and some screen readers do not understand line feeds as a space */
+    white-space: nowrap;
+  }
+  h1 {
+    text-wrap: balance;
+    font-size: 1.75em;
+  }
+</style>
